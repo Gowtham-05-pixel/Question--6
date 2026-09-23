@@ -1,20 +1,11 @@
 import time
 
-def run_backend_check():
-    print("Starting backend checks...")
-    
-    # Each script should sleep for 4 seconds
-    time.sleep(4)
-    
-    # Write its own result file (backend_report.txt)
-    output_filename = "backend_report.txt"
-    with open(output_filename, "w") as report_file:
-        report_file.write("Backend Check Report\n")
-        report_file.write("Status: SUCCESS\n")
-        report_file.write(f"Timestamp: {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
-        report_file.write("All backend assertions passed.\n")
-        
-    print(f"Backend checks completed. Report written to {output_filename}")
+print("Starting backend checks...")
+time.sleep(4)
 
-if __name__ == "__main__":
-    run_backend_check()
+with open("backend_report.txt", "w") as f:
+    f.write("Backend Build: PASSED\n")
+    f.write("API Endpoints: OK\n")
+    f.write("Database Migrations: Clean\n")
+
+print("Backend checks completed. Report saved to backend_report.txt")
